@@ -2,9 +2,11 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <ImageView
+    <TextView
+        android:id="@+id/usr_show"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/pku_view_5"/>
+        android:text="N/A"
+        android:textSize="30sp"/>
 
 </LinearLayout>

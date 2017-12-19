@@ -102,8 +102,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     }
 
     @Override
-    public void onClick(View view){
-        if(view.getId() == R.id.login_submit){
+    public void onClick(View view) {
+        if (view.getId() == R.id.login_submit) {
             if (NetUtil.getNetworkState(this) != NetUtil.NETWORK_NONE) {
                 Log.d("Dorm", "网络O的K");
                 onLogin();
@@ -114,15 +114,15 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         }
     }
 
-    public void onLogin(){
+    public void onLogin() {
         String usr = txt_login_usr.getText().toString();
-        if("".equals(usr)){
-            Toast.makeText(LoginActivity.this,"请输入学号",Toast.LENGTH_LONG).show();
+        if ("".equals(usr)) {
+            Toast.makeText(LoginActivity.this, "请输入学号", Toast.LENGTH_LONG).show();
             return;
         }
         String pwd = txt_login_pwd.getText().toString();
-        if("".equals(pwd)){
-            Toast.makeText(LoginActivity.this,"请输入密码",Toast.LENGTH_LONG).show();
+        if ("".equals(pwd)) {
+            Toast.makeText(LoginActivity.this, "请输入密码", Toast.LENGTH_LONG).show();
             return;
         }
         final String address = NetUtil.USER_PATH + "Login?username=" + usr + "&password=" + pwd;
@@ -166,9 +166,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     public static void trustAllHosts() {
         // Create a trust manager that does not validate certificate chains
         // Android use X509 cert
-        TrustManager[] trustAllCerts = new TrustManager[] { new X509TrustManager() {
+        TrustManager[] trustAllCerts = new TrustManager[]{new X509TrustManager() {
             public java.security.cert.X509Certificate[] getAcceptedIssuers() {
-                return new java.security.cert.X509Certificate[] {};
+                return new java.security.cert.X509Certificate[]{};
             }
 
             public void checkClientTrusted(X509Certificate[] chain,
@@ -178,7 +178,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             public void checkServerTrusted(X509Certificate[] chain,
                                            String authType) throws CertificateException {
             }
-        } };
+        }};
 
         // Install the all-trusting trust manager
         try {
@@ -197,11 +197,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         }
     };
 
-    public void decodeJSON(String str){
-        try{
+    public void decodeJSON(String str) {
+        try {
             JSONObject jObj = new JSONObject(str);
             int errcode = jObj.getInt("errcode");
-            if(errcode == 0){
+            if (errcode == 0) {
                 Log.d("Dorm", "666");
                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                 startActivity(intent);
@@ -209,7 +209,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 MainActivity.usr = txt_login_usr.getText().toString();
             } else {
                 Looper.prepare();
-                Toast.makeText(LoginActivity.this,"用户名或密码错误",Toast.LENGTH_LONG).show();
+                Toast.makeText(LoginActivity.this, "用户名或密码错误", Toast.LENGTH_LONG).show();
                 Looper.loop();
             }
 

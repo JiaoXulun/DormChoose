@@ -2,8 +2,9 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@color/light_grey">
+    android:background="@color/light_grey"
+    android:orientation="vertical">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -17,47 +18,49 @@
             android:orientation="horizontal">
 
             <LinearLayout
-                android:orientation="vertical"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:orientation="vertical">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="left|center_vertical"
-                    android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
                     android:layout_marginLeft="15dp"
-                    android:text="姓名"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/info_name"
                     android:textColor="@color/black"
-                    android:textSize="20sp"/>
+                    android:textSize="20sp" />
             </LinearLayout>
 
             <LinearLayout
-                android:orientation="vertical"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:orientation="vertical">
+
                 <TextView
                     android:id="@+id/info_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="right|center_vertical"
+                    android:layout_marginBottom="10dp"
                     android:layout_marginRight="15dp"
                     android:layout_marginTop="10dp"
-                    android:layout_marginBottom="10dp"
                     android:text="N/A"
                     android:textColor="@color/grey"
-                    android:textSize="20sp"/>
+                    android:textSize="20sp" />
             </LinearLayout>
         </LinearLayout>
 
         <View
-            android:layout_height="1px"
             android:layout_width="match_parent"
+            android:layout_height="1px"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
-            android:background="@color/black"/>
+            android:background="@color/black" />
 
     </LinearLayout>
 
@@ -74,47 +77,49 @@
             android:orientation="horizontal">
 
             <LinearLayout
-                android:orientation="vertical"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:orientation="vertical">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="left|center_vertical"
-                    android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
                     android:layout_marginLeft="15dp"
-                    android:text="学号"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/info_studentid"
                     android:textColor="@color/black"
-                    android:textSize="20sp"/>
+                    android:textSize="20sp" />
             </LinearLayout>
 
             <LinearLayout
-                android:orientation="vertical"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:orientation="vertical">
+
                 <TextView
                     android:id="@+id/info_studentid"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="right|center_vertical"
+                    android:layout_marginBottom="10dp"
                     android:layout_marginRight="15dp"
                     android:layout_marginTop="10dp"
-                    android:layout_marginBottom="10dp"
                     android:text="N/A"
                     android:textColor="@color/grey"
-                    android:textSize="20sp"/>
+                    android:textSize="20sp" />
             </LinearLayout>
         </LinearLayout>
 
         <View
-            android:layout_height="1px"
             android:layout_width="match_parent"
+            android:layout_height="1px"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
-            android:background="@color/black"/>
+            android:background="@color/black" />
 
     </LinearLayout>
 
@@ -130,47 +135,49 @@
             android:orientation="horizontal">
 
             <LinearLayout
-                android:orientation="vertical"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:orientation="vertical">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="left|center_vertical"
-                    android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
                     android:layout_marginLeft="15dp"
-                    android:text="性别"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/info_gender"
                     android:textColor="@color/black"
-                    android:textSize="20sp"/>
+                    android:textSize="20sp" />
             </LinearLayout>
 
             <LinearLayout
-                android:orientation="vertical"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:orientation="vertical">
+
                 <TextView
                     android:id="@+id/info_gender"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="right|center_vertical"
+                    android:layout_marginBottom="10dp"
                     android:layout_marginRight="15dp"
                     android:layout_marginTop="10dp"
-                    android:layout_marginBottom="10dp"
                     android:text="N/A"
                     android:textColor="@color/grey"
-                    android:textSize="20sp"/>
+                    android:textSize="20sp" />
             </LinearLayout>
         </LinearLayout>
 
         <View
-            android:layout_height="1px"
             android:layout_width="match_parent"
+            android:layout_height="1px"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
-            android:background="@color/black"/>
+            android:background="@color/black" />
 
     </LinearLayout>
 
@@ -186,47 +193,49 @@
             android:orientation="horizontal">
 
             <LinearLayout
-                android:orientation="vertical"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:orientation="vertical">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="left|center_vertical"
-                    android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
                     android:layout_marginLeft="15dp"
-                    android:text="年级"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/info_grade"
                     android:textColor="@color/black"
-                    android:textSize="20sp"/>
+                    android:textSize="20sp" />
             </LinearLayout>
 
             <LinearLayout
-                android:orientation="vertical"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:orientation="vertical">
+
                 <TextView
                     android:id="@+id/info_grade"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="right|center_vertical"
+                    android:layout_marginBottom="10dp"
                     android:layout_marginRight="15dp"
                     android:layout_marginTop="10dp"
-                    android:layout_marginBottom="10dp"
                     android:text="N/A"
                     android:textColor="@color/grey"
-                    android:textSize="20sp"/>
+                    android:textSize="20sp" />
             </LinearLayout>
         </LinearLayout>
 
         <View
-            android:layout_height="1px"
             android:layout_width="match_parent"
+            android:layout_height="1px"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
-            android:background="@color/black"/>
+            android:background="@color/black" />
 
     </LinearLayout>
 
@@ -242,38 +251,40 @@
             android:orientation="horizontal">
 
             <LinearLayout
-                android:orientation="vertical"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:orientation="vertical">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="left|center_vertical"
-                    android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
                     android:layout_marginLeft="15dp"
-                    android:text="校区"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/info_location"
                     android:textColor="@color/black"
-                    android:textSize="20sp"/>
+                    android:textSize="20sp" />
             </LinearLayout>
 
             <LinearLayout
-                android:orientation="vertical"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:orientation="vertical">
+
                 <TextView
                     android:id="@+id/info_location"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="right|center_vertical"
+                    android:layout_marginBottom="10dp"
                     android:layout_marginRight="15dp"
                     android:layout_marginTop="10dp"
-                    android:layout_marginBottom="10dp"
                     android:text="N/A"
                     android:textColor="@color/grey"
-                    android:textSize="20sp"/>
+                    android:textSize="20sp" />
             </LinearLayout>
         </LinearLayout>
 
@@ -292,47 +303,49 @@
             android:orientation="horizontal">
 
             <LinearLayout
-                android:orientation="vertical"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:orientation="vertical">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="left|center_vertical"
-                    android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
                     android:layout_marginLeft="15dp"
-                    android:text="验证码"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/info_vcode"
                     android:textColor="@color/black"
-                    android:textSize="20sp"/>
+                    android:textSize="20sp" />
             </LinearLayout>
 
             <LinearLayout
-                android:orientation="vertical"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:orientation="vertical">
+
                 <TextView
                     android:id="@+id/info_vcode"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="right|center_vertical"
+                    android:layout_marginBottom="10dp"
                     android:layout_marginRight="15dp"
                     android:layout_marginTop="10dp"
-                    android:layout_marginBottom="10dp"
                     android:text="N/A"
                     android:textColor="@color/grey"
-                    android:textSize="20sp"/>
+                    android:textSize="20sp" />
             </LinearLayout>
         </LinearLayout>
 
         <View
-            android:layout_height="1px"
             android:layout_width="match_parent"
+            android:layout_height="1px"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
-            android:background="@color/black"/>
+            android:background="@color/black" />
 
     </LinearLayout>
 
@@ -349,47 +362,49 @@
             android:orientation="horizontal">
 
             <LinearLayout
-                android:orientation="vertical"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:orientation="vertical">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="left|center_vertical"
-                    android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
                     android:layout_marginLeft="15dp"
-                    android:text="楼号"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/info_building"
                     android:textColor="@color/black"
-                    android:textSize="20sp"/>
+                    android:textSize="20sp" />
             </LinearLayout>
 
             <LinearLayout
-                android:orientation="vertical"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:orientation="vertical">
+
                 <TextView
                     android:id="@+id/info_building"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="right|center_vertical"
+                    android:layout_marginBottom="10dp"
                     android:layout_marginRight="15dp"
                     android:layout_marginTop="10dp"
-                    android:layout_marginBottom="10dp"
                     android:text="N/A"
                     android:textColor="@color/grey"
-                    android:textSize="20sp"/>
+                    android:textSize="20sp" />
             </LinearLayout>
         </LinearLayout>
 
         <View
-            android:layout_height="1px"
             android:layout_width="match_parent"
+            android:layout_height="1px"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
-            android:background="@color/black"/>
+            android:background="@color/black" />
 
     </LinearLayout>
 
@@ -405,38 +420,40 @@
             android:orientation="horizontal">
 
             <LinearLayout
-                android:orientation="vertical"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:orientation="vertical">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="left|center_vertical"
-                    android:layout_marginTop="10dp"
                     android:layout_marginBottom="10dp"
                     android:layout_marginLeft="15dp"
-                    android:text="房间号"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/info_room"
                     android:textColor="@color/black"
-                    android:textSize="20sp"/>
+                    android:textSize="20sp" />
             </LinearLayout>
 
             <LinearLayout
-                android:orientation="vertical"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:orientation="vertical">
+
                 <TextView
                     android:id="@+id/info_room"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="right|center_vertical"
+                    android:layout_marginBottom="10dp"
                     android:layout_marginRight="15dp"
                     android:layout_marginTop="10dp"
-                    android:layout_marginBottom="10dp"
                     android:text="N/A"
                     android:textColor="@color/grey"
-                    android:textSize="20sp"/>
+                    android:textSize="20sp" />
             </LinearLayout>
 
         </LinearLayout>
@@ -455,31 +472,33 @@
             android:orientation="horizontal">
 
             <LinearLayout
-                android:orientation="vertical"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:orientation="vertical">
+
                 <Button
                     android:id="@+id/btn_choose"
                     android:layout_width="160dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="确认无误，进入选宿"
-                    android:background="@color/pkured"/>
+                    android:background="@color/pkured"
+                    android:text="@string/info_submit" />
             </LinearLayout>
 
             <LinearLayout
-                android:orientation="vertical"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:orientation="vertical">
+
                 <Button
                     android:id="@+id/btn_exit"
                     android:layout_width="160dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="退出"
-                    android:background="@color/pkured"/>
+                    android:background="@color/pkured"
+                    android:text="@string/info_exit" />
             </LinearLayout>
         </LinearLayout>
 

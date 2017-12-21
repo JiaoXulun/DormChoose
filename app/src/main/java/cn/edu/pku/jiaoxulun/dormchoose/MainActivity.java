@@ -83,6 +83,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btn_choose = (Button) findViewById(R.id.btn_choose);
 
         btn_exit.setOnClickListener(this);
+        btn_choose.setOnClickListener(this);
 
         /*StudentInfo studentInfo = decodeJSON(getJSON());
 
@@ -106,6 +107,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Intent intent = new Intent(MainActivity.this, LoginActivity.class);
             startActivity(intent);
             finish();
+        } else if (view.getId() == R.id.btn_choose) {
+            Log.d("Dorm2", "choose");
+            Intent intent = new Intent(MainActivity.this, ChooseActivity.class);
+            startActivity(intent);
+            ChooseActivity.usr = this.usr;
+            ChooseActivity.gender = txt_info_gender.getText().toString();
+            finish();
         }
     }
 
@@ -119,7 +127,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         txt_info_building.setText(studentInfo.getBuilding());
         txt_info_room.setText(studentInfo.getRoom());
 
-        if(studentInfo.getBuilding()!="未选择"){
+        if (studentInfo.getBuilding() != "未选择") {
             btn_choose.setActivated(false);
             btn_choose.setText("选择完毕，不能更改");
             btn_choose.setBackgroundColor(getResources().getColor(R.color.grey));

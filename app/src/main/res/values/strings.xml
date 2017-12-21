@@ -2,4 +2,21 @@
     <string name="app_name">DormChoose</string>
     <string name="login_username">学号</string>
     <string name="login_password">密码</string>
+    <string name="login_submit">登录</string>
+    <string name="login_sspku">©北京大学软件与微电子学院</string>
+    <string name="info_name">姓名</string>
+    <string name="info_studentid">学号</string>
+    <string name="info_gender">性别</string>
+    <string name="info_grade">年级</string>
+    <string name="info_location">校区</string>
+    <string name="info_vcode">验证码</string>
+    <string name="info_building">楼号</string>
+    <string name="info_room">房间号</string>
+    <string name="info_submit">确认无误，进入选宿</string>
+    <string name="info_exit">退出</string>
+    <string name="remain_5">5号楼剩余空床数</string>
+    <string name="remain_13">13号楼剩余空床数</string>
+    <string name="remain_14">14号楼剩余空床数</string>
+    <string name="remain_8">8号楼剩余空床数</string>
+    <string name="remain_9">9号楼剩余空床数</string>
 </resources>

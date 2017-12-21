@@ -15,79 +15,84 @@
             android:id="@+id/login_pkulogo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
             android:layout_gravity="center_horizontal"
-            android:src="@drawable/pku_logo"/>
+            android:layout_marginTop="15dp"
+            android:src="@drawable/pku_logo" />
+
         <EditText
             android:id="@+id/login_usr"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
             android:layout_gravity="center_horizontal"
-            android:textColor="@color/black"
-            android:hint="@string/login_username"
-            android:textColorHint="@color/grey"/>
-        <View
-            android:layout_height="1px"
-            android:layout_width="match_parent"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
-            android:background="@color/black"/>
+            android:layout_marginTop="15dp"
+            android:hint="@string/login_username"
+            android:textColor="@color/black"
+            android:textColorHint="@color/grey" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:background="@color/black" />
+
         <EditText
             android:id="@+id/login_pwd"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
             android:layout_gravity="center_horizontal"
-            android:textColor="@color/black"
-            android:inputType="textPassword"
-            android:hint="@string/login_password"
-            android:textColorHint="@color/grey"/>
-        <View
-            android:layout_height="1px"
-            android:layout_width="match_parent"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
-            android:background="@color/black"/>
+            android:layout_marginTop="5dp"
+            android:hint="@string/login_password"
+            android:inputType="textPassword"
+            android:textColor="@color/black"
+            android:textColorHint="@color/grey" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:background="@color/black" />
+
         <Button
             android:id="@+id/login_submit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
+            android:layout_gravity="center_horizontal"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
-            android:layout_gravity="center_horizontal"
-            android:text="登录"
-            android:textSize="15sp"
+            android:layout_marginTop="5dp"
+            android:background="@color/pkured"
+            android:text="@string/login_submit"
             android:textColor="@color/white"
-            android:background="@color/pkured"/>
+            android:textSize="15sp" />
+
         <ImageView
             android:id="@+id/login_pkuview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
+            android:layout_gravity="center_horizontal"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:layout_gravity="center_horizontal"
-            android:src="@drawable/pku_view_5"/>
+            android:layout_marginTop="5dp"
+            android:src="@drawable/pku_view_5" />
+
         <TextView
             android:id="@+id/login_corp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:text="©北京大学软件与微电子学院"
-            android:textSize="15sp"
             android:layout_gravity="center_horizontal"
-            android:textColor="@color/black"/>
+            android:layout_marginTop="5dp"
+            android:text="@string/login_sspku"
+            android:textColor="@color/black"
+            android:textSize="15sp" />
 
 
     </LinearLayout>
-
-
 
 
 </RelativeLayout>

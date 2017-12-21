@@ -90,6 +90,5 @@ public class StudentInfo {
                 ", location='" + location + '\'' +
                 ", grade='" + grade + '\'' +
                 '}';
-
     }
 }

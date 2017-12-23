@@ -7,8 +7,12 @@ import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import org.json.JSONException;
@@ -32,7 +36,7 @@ import cn.edu.pku.jiaoxulun.bean.RoomInfo;
 import cn.edu.pku.jiaoxulun.bean.StudentInfo;
 import cn.edu.pku.jiaoxulun.util.NetUtil;
 
-public class ChooseActivity extends AppCompatActivity implements View.OnClickListener {
+public class ChooseActivity extends AppCompatActivity implements View.OnClickListener, RadioGroup.OnCheckedChangeListener {
     private static final int UPDATE_ROOM_INFO = 2;
     public static String usr = null;
     public static String gender = null;
@@ -44,6 +48,14 @@ public class ChooseActivity extends AppCompatActivity implements View.OnClickLis
     TextView txt_remain_9;
 
     Button btn_back;
+    Button btn_add;
+    Button btn_add2;
+    Button btn_remove2;
+    Button btn_remove3;
+
+    RadioGroup radio_choose;
+    RadioButton radio_personal;
+    RadioButton radio_collective;
 
     private Handler mHandler = new Handler() {
         public void handleMessage(android.os.Message msg) {
@@ -75,18 +87,80 @@ public class ChooseActivity extends AppCompatActivity implements View.OnClickLis
 
         btn_back = (Button) findViewById(R.id.btn_back);
 
+
+        radio_choose = (RadioGroup) findViewById(R.id.radio_choose);
+        radio_personal = (RadioButton) findViewById(R.id.radio_personal);
+        radio_collective = (RadioButton) findViewById(R.id.radio_collective);
+
         btn_back.setOnClickListener(this);
+
+
+        radio_choose.setOnCheckedChangeListener(this);
 
         getJSON();
     }
 
     @Override
     public void onClick(View view){
-        if(view.getId()==R.id.btn_back){
-            Intent intent = new Intent(ChooseActivity.this, MainActivity.class);
-            startActivity(intent);
-            finish();
-            MainActivity.usr = this.usr;
+        switch (view.getId()){
+            case R.id.btn_back:
+                Intent intent = new Intent(ChooseActivity.this, MainActivity.class);
+                startActivity(intent);
+                finish();
+                MainActivity.usr = this.usr;
+                break;
+            case R.id.resident_add:
+                final LinearLayout container = (LinearLayout) findViewById(R.id.resident_2);
+                View child = LayoutInflater.from(ChooseActivity.this).inflate(R.layout.info_resident_2, container, false);
+                container.addView(child);
+                container.invalidate();
+                btn_add.setVisibility(View.INVISIBLE);
+                btn_add2 = (Button) findViewById(R.id.resident_add_2);
+                btn_remove2 = (Button) findViewById(R.id.resident_remove_2);
+                btn_add2.setOnClickListener(this);
+                btn_remove2.setOnClickListener(this);
+                break;
+            case R.id.resident_remove_2:
+                final LinearLayout container2 = (LinearLayout) findViewById(R.id.resident_2);
+                container2.removeAllViews();
+                btn_add.setVisibility(View.VISIBLE);
+                break;
+            case R.id.resident_add_2:
+                final LinearLayout container3 = (LinearLayout) findViewById(R.id.resident_3);
+                View child3 = LayoutInflater.from(ChooseActivity.this).inflate(R.layout.info_resident_3, container3, false);
+                container3.addView(child3);
+                container3.invalidate();
+                btn_add2.setVisibility(View.INVISIBLE);
+                btn_remove2.setVisibility(View.INVISIBLE);
+                btn_remove3 = (Button) findViewById(R.id.resident_remove_3);
+                btn_remove3.setOnClickListener(this);
+                break;
+            case R.id.resident_remove_3:
+                final LinearLayout container4 = (LinearLayout) findViewById(R.id.resident_3);
+                container4.removeAllViews();
+                btn_add2.setVisibility(View.VISIBLE);
+                btn_remove2.setVisibility(View.VISIBLE);
+                break;
+        }
+    }
+
+    @Override
+    public void onCheckedChanged(RadioGroup radioGroup,int checkedId){
+        final LinearLayout container = (LinearLayout) findViewById(R.id.info_collective);
+
+        switch (checkedId){
+            case R.id.radio_personal:
+                container.removeAllViews();
+                Log.d("DormRadio","11111");
+                break;
+            case R.id.radio_collective:
+                Log.d("DormRadio","22222");
+                View child = LayoutInflater.from(ChooseActivity.this).inflate(R.layout.info_resident, container, false);
+                container.addView(child);
+                container.invalidate();
+                btn_add = (Button) findViewById(R.id.resident_add);
+                btn_add.setOnClickListener(this);
+                break;
         }
     }
 

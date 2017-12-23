@@ -26,6 +26,15 @@
     <string name="btn_submit">提交</string>
     <string name="btn_back">返回</string>
 
+    <string name="resident_stu1id">同住人1学号</string>
+    <string name="resident_v1code">同住人1校验码</string>
+    <string name="resident_stu2id">同住人2学号</string>
+    <string name="resident_v2code">同住人2校验码</string>
+    <string name="resident_stu3id">同住人3学号</string>
+    <string name="resident_v3code">同住人3校验码</string>
+    <string name="resident_add"> </string>
+    <string name="resident_remove"> </string>
+
 
 </resources>
 

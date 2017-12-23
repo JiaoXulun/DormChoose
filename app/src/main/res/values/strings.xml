@@ -14,9 +14,18 @@
     <string name="info_room">房间号</string>
     <string name="info_submit">确认无误，进入选宿</string>
     <string name="info_exit">退出</string>
-    <string name="remain_5">5号楼剩余空床数</string>
+
+    <string name="remain_5">05号楼剩余空床数</string>
     <string name="remain_13">13号楼剩余空床数</string>
     <string name="remain_14">14号楼剩余空床数</string>
-    <string name="remain_8">8号楼剩余空床数</string>
-    <string name="remain_9">9号楼剩余空床数</string>
+    <string name="remain_8">08号楼剩余空床数</string>
+    <string name="remain_9">09号楼剩余空床数</string>
+    <string name="building_choose">请选择楼号</string>
+    <string name="radio_personal">个人办理</string>
+    <string name="radio_collective">集体办理</string>
+    <string name="btn_submit">提交</string>
+    <string name="btn_back">返回</string>
+
+
 </resources>
+

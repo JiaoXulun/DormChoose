@@ -483,7 +483,8 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:background="@color/pkured"
-                    android:text="@string/info_submit" />
+                    android:text="@string/info_submit"
+                    android:textColor="@color/white"/>
             </LinearLayout>
 
             <LinearLayout
@@ -498,6 +499,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:background="@color/pkured"
+                    android:textColor="@color/white"
                     android:text="@string/info_exit" />
             </LinearLayout>
         </LinearLayout>

@@ -1,10 +1,13 @@
 package cn.edu.pku.jiaoxulun.dormchoose;
 
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -29,7 +32,7 @@ import cn.edu.pku.jiaoxulun.bean.RoomInfo;
 import cn.edu.pku.jiaoxulun.bean.StudentInfo;
 import cn.edu.pku.jiaoxulun.util.NetUtil;
 
-public class ChooseActivity extends AppCompatActivity {
+public class ChooseActivity extends AppCompatActivity implements View.OnClickListener {
     private static final int UPDATE_ROOM_INFO = 2;
     public static String usr = null;
     public static String gender = null;
@@ -39,6 +42,8 @@ public class ChooseActivity extends AppCompatActivity {
     TextView txt_remain_14;
     TextView txt_remain_8;
     TextView txt_remain_9;
+
+    Button btn_back;
 
     private Handler mHandler = new Handler() {
         public void handleMessage(android.os.Message msg) {
@@ -57,6 +62,7 @@ public class ChooseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose);
 
+
         initView();
     }
 
@@ -67,7 +73,21 @@ public class ChooseActivity extends AppCompatActivity {
         txt_remain_8 = (TextView) findViewById(R.id.remain_8);
         txt_remain_9 = (TextView) findViewById(R.id.remain_9);
 
+        btn_back = (Button) findViewById(R.id.btn_back);
+
+        btn_back.setOnClickListener(this);
+
         getJSON();
+    }
+
+    @Override
+    public void onClick(View view){
+        if(view.getId()==R.id.btn_back){
+            Intent intent = new Intent(ChooseActivity.this, MainActivity.class);
+            startActivity(intent);
+            finish();
+            MainActivity.usr = this.usr;
+        }
     }
 
     void updateRoomInfo(RoomInfo roomInfo) {

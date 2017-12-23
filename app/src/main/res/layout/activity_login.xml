@@ -31,13 +31,6 @@
             android:textColor="@color/black"
             android:textColorHint="@color/grey" />
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1px"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-            android:background="@color/black" />
-
         <EditText
             android:id="@+id/login_pwd"
             android:layout_width="match_parent"
@@ -50,13 +43,6 @@
             android:inputType="textPassword"
             android:textColor="@color/black"
             android:textColorHint="@color/grey" />
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1px"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-            android:background="@color/black" />
 
         <Button
             android:id="@+id/login_submit"

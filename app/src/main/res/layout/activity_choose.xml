@@ -300,8 +300,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/white"
             android:layout_marginTop="15dp"
+            android:background="@color/white"
             android:orientation="vertical">
 
             <LinearLayout
@@ -358,41 +358,44 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:background="@color/white">
+            android:background="@color/white"
+            android:orientation="vertical">
 
             <RadioGroup
                 android:id="@+id/radio_choose"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center">
+                android:gravity="center"
+                android:orientation="horizontal">
+
                 <RadioButton
                     android:id="@+id/radio_personal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:checked="true"
                     android:layout_marginBottom="10dp"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="10dp"
+                    android:checked="true"
                     android:text="@string/radio_personal"
                     android:textColor="@color/black"
-                    android:textSize="20sp"/>
+                    android:textSize="20sp" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="                        "/>
+                    android:text="                        " />
+
                 <RadioButton
                     android:id="@+id/radio_collective"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:checked="false"
                     android:layout_marginBottom="10dp"
                     android:layout_marginRight="15dp"
                     android:layout_marginTop="10dp"
+                    android:checked="false"
                     android:text="@string/radio_collective"
                     android:textColor="@color/black"
-                    android:textSize="20sp"/>
+                    android:textSize="20sp" />
 
             </RadioGroup>
 
@@ -403,7 +406,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-
 
 
         </LinearLayout>
@@ -432,7 +434,7 @@
                         android:layout_gravity="center"
                         android:background="@color/pkured"
                         android:text="@string/btn_submit"
-                        android:textColor="@color/white"/>
+                        android:textColor="@color/white" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -448,7 +450,7 @@
                         android:layout_gravity="center"
                         android:background="@color/pkured"
                         android:text="@string/btn_back"
-                        android:textColor="@color/white"/>
+                        android:textColor="@color/white" />
                 </LinearLayout>
             </LinearLayout>
 
@@ -457,8 +459,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="15dp">
+            android:layout_marginTop="15dp"
+            android:orientation="horizontal">
 
             <ImageView
                 android:layout_width="match_parent"

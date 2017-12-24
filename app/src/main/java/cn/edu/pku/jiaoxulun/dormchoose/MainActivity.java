@@ -128,7 +128,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         txt_info_room.setText(studentInfo.getRoom());
 
         if (studentInfo.getBuilding() != "未选择") {
-            btn_choose.setActivated(false);
+            btn_choose.setEnabled(false);
             btn_choose.setText("选择完毕，不能更改");
             btn_choose.setBackgroundColor(getResources().getColor(R.color.grey));
         }

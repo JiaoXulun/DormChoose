@@ -25,8 +25,9 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:orientation="vertical">
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -61,7 +62,7 @@
                             android:id="@+id/resident_stu3id"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginRight="15dp"/>
+                            android:layout_marginRight="15dp" />
 
                     </LinearLayout>
 
@@ -101,7 +102,7 @@
                             android:id="@+id/resident_v3code"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginRight="15dp"/>
+                            android:layout_marginRight="15dp" />
 
                     </LinearLayout>
 
@@ -112,12 +113,12 @@
                 android:id="@+id/resident_remove_3"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:layout_marginRight="15dp"
                 android:layout_gravity="center_vertical"
+                android:layout_marginRight="15dp"
+                android:background="@drawable/button_remove"
                 android:text="@string/resident_remove"
-                android:textSize="20sp"
                 android:textColor="@color/white"
-                android:background="@drawable/button_remove"/>
+                android:textSize="20sp" />
 
         </LinearLayout>
 

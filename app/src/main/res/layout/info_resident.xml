@@ -2,8 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@color/light_grey">
+    android:background="@color/light_grey"
+    android:orientation="vertical">
 
     <LinearLayout
         android:id="@+id/resident_1"
@@ -27,8 +27,9 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:orientation="vertical">
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -63,7 +64,7 @@
                             android:id="@+id/resident_stu1id"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginRight="15dp"/>
+                            android:layout_marginRight="15dp" />
 
                     </LinearLayout>
 
@@ -103,7 +104,7 @@
                             android:id="@+id/resident_v1code"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginRight="15dp"/>
+                            android:layout_marginRight="15dp" />
 
                     </LinearLayout>
 
@@ -114,12 +115,12 @@
                 android:id="@+id/resident_add"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:layout_marginRight="15dp"
                 android:layout_gravity="center_vertical"
+                android:layout_marginRight="15dp"
+                android:background="@drawable/button_add"
                 android:text="@string/resident_add"
-                android:textSize="25sp"
                 android:textColor="@color/white"
-                android:background="@drawable/button_add"/>
+                android:textSize="25sp" />
 
         </LinearLayout>
 
@@ -131,7 +132,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
-
 
 
     </LinearLayout>

@@ -3,6 +3,7 @@ package cn.edu.pku.jiaoxulun.dormchoose;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Handler;
+import android.os.Looper;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -17,6 +18,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -24,6 +26,7 @@ import org.json.JSONObject;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.PrintWriter;
 import java.net.URL;
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
@@ -105,7 +108,7 @@ public class ChooseActivity extends AppCompatActivity implements View.OnClickLis
         btn_back = (Button) findViewById(R.id.btn_back);
         btn_submit = (Button) findViewById(R.id.btn_submit);
 
-        building_choose = (Spinner)findViewById(R.id.building_choose);
+        building_choose = (Spinner) findViewById(R.id.building_choose);
 
         radio_choose = (RadioGroup) findViewById(R.id.radio_choose);
         radio_personal = (RadioButton) findViewById(R.id.radio_personal);
@@ -141,8 +144,8 @@ public class ChooseActivity extends AppCompatActivity implements View.OnClickLis
                 Log.d("DormInt", "" + choose_amount);
                 btn_add2 = (Button) findViewById(R.id.resident_add_2);
                 btn_remove2 = (Button) findViewById(R.id.resident_remove_2);
-                resident_stu2id = (EditText)findViewById(R.id.resident_stu2id);
-                resident_v2code = (EditText)findViewById(R.id.resident_v2code);
+                resident_stu2id = (EditText) findViewById(R.id.resident_stu2id);
+                resident_v2code = (EditText) findViewById(R.id.resident_v2code);
                 btn_add2.setOnClickListener(this);
                 btn_remove2.setOnClickListener(this);
                 break;
@@ -163,8 +166,8 @@ public class ChooseActivity extends AppCompatActivity implements View.OnClickLis
                 choose_amount++;
                 Log.d("DormInt", "" + choose_amount);
                 btn_remove3 = (Button) findViewById(R.id.resident_remove_3);
-                resident_stu3id = (EditText)findViewById(R.id.resident_stu3id);
-                resident_v3code = (EditText)findViewById(R.id.resident_v3code);
+                resident_stu3id = (EditText) findViewById(R.id.resident_stu3id);
+                resident_v3code = (EditText) findViewById(R.id.resident_v3code);
                 btn_remove3.setOnClickListener(this);
                 break;
             case R.id.resident_remove_3:
@@ -179,12 +182,24 @@ public class ChooseActivity extends AppCompatActivity implements View.OnClickLis
                 ChooseInfo chooseInfo = new ChooseInfo();
                 switch (choose_amount) {
                     case 4:
+                        if (resident_stu3id.getText().toString().isEmpty() || resident_v3code.getText().toString().isEmpty()) {
+                            Toast.makeText(ChooseActivity.this, "信息输入不完整，请检查！", Toast.LENGTH_LONG).show();
+                            return;
+                        }
                         chooseInfo.setStu3id(resident_stu3id.getText().toString());
                         chooseInfo.setV3code(resident_v3code.getText().toString());
                     case 3:
+                        if (resident_stu2id.getText().toString().isEmpty() || resident_v2code.getText().toString().isEmpty()) {
+                            Toast.makeText(ChooseActivity.this, "信息输入不完整，请检查！", Toast.LENGTH_LONG).show();
+                            return;
+                        }
                         chooseInfo.setStu2id(resident_stu2id.getText().toString());
                         chooseInfo.setV2code(resident_v2code.getText().toString());
                     case 2:
+                        if (resident_stu1id.getText().toString().isEmpty() || resident_v1code.getText().toString().isEmpty()) {
+                            Toast.makeText(ChooseActivity.this, "信息输入不完整，请检查！", Toast.LENGTH_LONG).show();
+                            return;
+                        }
                         chooseInfo.setStu1id(resident_stu1id.getText().toString());
                         chooseInfo.setV1code(resident_v1code.getText().toString());
                     case 1:
@@ -192,7 +207,7 @@ public class ChooseActivity extends AppCompatActivity implements View.OnClickLis
                         chooseInfo.setBuildingNo(buildingNo);
                         chooseInfo.setStuid(usr);
                 }
-                Log.d("DormPost",chooseInfo.toString());
+                post(chooseInfo.toString());
                 break;
         }
     }
@@ -214,8 +229,8 @@ public class ChooseActivity extends AppCompatActivity implements View.OnClickLis
                 container.addView(child);
                 container.invalidate();
                 btn_add = (Button) findViewById(R.id.resident_add);
-                resident_stu1id = (EditText)findViewById(R.id.resident_stu1id);
-                resident_v1code = (EditText)findViewById(R.id.resident_v1code);
+                resident_stu1id = (EditText) findViewById(R.id.resident_stu1id);
+                resident_v1code = (EditText) findViewById(R.id.resident_v1code);
                 btn_add.setOnClickListener(this);
                 break;
         }
@@ -277,6 +292,50 @@ public class ChooseActivity extends AppCompatActivity implements View.OnClickLis
         }).start();
     }
 
+    public void post(final String param) {
+        final String address = NetUtil.USER_PATH + "SelectRoom";
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                HttpsURLConnection con = null;
+                try {
+                    URL url = new URL(address);
+                    trustAllHosts();
+                    con = (HttpsURLConnection) url.openConnection();
+                    con.setHostnameVerifier(DO_NOT_VERIFY);
+                    con.setDoInput(true);
+                    con.setDoOutput(true);
+                    con.setUseCaches(false);
+                    con.setRequestMethod("POST");
+                    con.connect();
+                    con.setConnectTimeout(8000);
+                    con.setReadTimeout(8000);
+                    PrintWriter out = new PrintWriter(con.getOutputStream());
+                    out.print(param);
+                    out.flush();
+                    InputStream in = con.getInputStream();
+                    BufferedReader reader = new BufferedReader(new InputStreamReader(in));
+                    StringBuilder response = new StringBuilder();
+                    String str;
+                    Log.d("Dorm", address);
+                    while ((str = reader.readLine()) != null) {
+                        response.append(str);
+                        Log.d("Dorm", str);
+                    }
+                    String responseStr = response.toString();
+                    decodePost(responseStr);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                } finally {
+                    if (con != null) {
+                        con.disconnect();
+                    }
+                }
+            }
+        }).start();
+
+    }
+
     public static void trustAllHosts() {
         // Create a trust manager that does not validate certificate chains
         // Android use X509 cert
@@ -332,9 +391,37 @@ public class ChooseActivity extends AppCompatActivity implements View.OnClickLis
         return roomInfo;
     }
 
+    public void decodePost(String str) {
+        View view = findViewById(R.id.btn_back);
+        try {
+            JSONObject jObj = new JSONObject(str);
+            int errcode = jObj.getInt("errcode");
+
+            if (errcode == 0) {
+                view.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        btn_back.performClick();
+                    }
+                });
+                Looper.prepare();
+                Toast.makeText(ChooseActivity.this, "宿舍选择成功", Toast.LENGTH_LONG).show();
+                Looper.loop();
+            } else {
+                Looper.prepare();
+                Toast.makeText(ChooseActivity.this, "宿舍选择失败", Toast.LENGTH_LONG).show();
+                Looper.loop();
+            }
+
+        } catch (JSONException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
+
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-        switch (i){
+        switch (i) {
             case 0:
                 buildingNo = 5;
                 break;

@@ -461,10 +461,9 @@
             android:layout_marginTop="15dp">
 
             <ImageView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:src="@mipmap/sspku_view"
-                android:layout_gravity="center"/>1
+                android:src="@mipmap/sspku_view" />
 
         </LinearLayout>
 

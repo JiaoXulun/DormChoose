@@ -9,10 +9,13 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import org.json.JSONException;
@@ -32,14 +35,18 @@ import javax.net.ssl.SSLSession;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
 
+import cn.edu.pku.jiaoxulun.bean.ChooseInfo;
 import cn.edu.pku.jiaoxulun.bean.RoomInfo;
 import cn.edu.pku.jiaoxulun.bean.StudentInfo;
 import cn.edu.pku.jiaoxulun.util.NetUtil;
 
-public class ChooseActivity extends AppCompatActivity implements View.OnClickListener, RadioGroup.OnCheckedChangeListener {
+public class ChooseActivity extends AppCompatActivity implements View.OnClickListener, RadioGroup.OnCheckedChangeListener, Spinner.OnItemSelectedListener {
     private static final int UPDATE_ROOM_INFO = 2;
     public static String usr = null;
     public static String gender = null;
+
+    int choose_amount = 1;
+    int buildingNo = 5;
 
     TextView txt_remain_5;
     TextView txt_remain_13;
@@ -47,7 +54,17 @@ public class ChooseActivity extends AppCompatActivity implements View.OnClickLis
     TextView txt_remain_8;
     TextView txt_remain_9;
 
+    Spinner building_choose;
+
+    EditText resident_stu1id;
+    EditText resident_v1code;
+    EditText resident_stu2id;
+    EditText resident_v2code;
+    EditText resident_stu3id;
+    EditText resident_v3code;
+
     Button btn_back;
+    Button btn_submit;
     Button btn_add;
     Button btn_add2;
     Button btn_remove2;
@@ -86,14 +103,18 @@ public class ChooseActivity extends AppCompatActivity implements View.OnClickLis
         txt_remain_9 = (TextView) findViewById(R.id.remain_9);
 
         btn_back = (Button) findViewById(R.id.btn_back);
+        btn_submit = (Button) findViewById(R.id.btn_submit);
 
+        building_choose = (Spinner)findViewById(R.id.building_choose);
 
         radio_choose = (RadioGroup) findViewById(R.id.radio_choose);
         radio_personal = (RadioButton) findViewById(R.id.radio_personal);
         radio_collective = (RadioButton) findViewById(R.id.radio_collective);
 
         btn_back.setOnClickListener(this);
+        btn_submit.setOnClickListener(this);
 
+        building_choose.setOnItemSelectedListener(this);
 
         radio_choose.setOnCheckedChangeListener(this);
 
@@ -101,8 +122,9 @@ public class ChooseActivity extends AppCompatActivity implements View.OnClickLis
     }
 
     @Override
-    public void onClick(View view){
-        switch (view.getId()){
+    public void onClick(View view) {
+
+        switch (view.getId()) {
             case R.id.btn_back:
                 Intent intent = new Intent(ChooseActivity.this, MainActivity.class);
                 startActivity(intent);
@@ -115,14 +137,20 @@ public class ChooseActivity extends AppCompatActivity implements View.OnClickLis
                 container.addView(child);
                 container.invalidate();
                 btn_add.setVisibility(View.INVISIBLE);
+                choose_amount++;
+                Log.d("DormInt", "" + choose_amount);
                 btn_add2 = (Button) findViewById(R.id.resident_add_2);
                 btn_remove2 = (Button) findViewById(R.id.resident_remove_2);
+                resident_stu2id = (EditText)findViewById(R.id.resident_stu2id);
+                resident_v2code = (EditText)findViewById(R.id.resident_v2code);
                 btn_add2.setOnClickListener(this);
                 btn_remove2.setOnClickListener(this);
                 break;
             case R.id.resident_remove_2:
                 final LinearLayout container2 = (LinearLayout) findViewById(R.id.resident_2);
                 container2.removeAllViews();
+                choose_amount--;
+                Log.d("DormInt", "" + choose_amount);
                 btn_add.setVisibility(View.VISIBLE);
                 break;
             case R.id.resident_add_2:
@@ -132,33 +160,62 @@ public class ChooseActivity extends AppCompatActivity implements View.OnClickLis
                 container3.invalidate();
                 btn_add2.setVisibility(View.INVISIBLE);
                 btn_remove2.setVisibility(View.INVISIBLE);
+                choose_amount++;
+                Log.d("DormInt", "" + choose_amount);
                 btn_remove3 = (Button) findViewById(R.id.resident_remove_3);
+                resident_stu3id = (EditText)findViewById(R.id.resident_stu3id);
+                resident_v3code = (EditText)findViewById(R.id.resident_v3code);
                 btn_remove3.setOnClickListener(this);
                 break;
             case R.id.resident_remove_3:
                 final LinearLayout container4 = (LinearLayout) findViewById(R.id.resident_3);
                 container4.removeAllViews();
+                choose_amount--;
+                Log.d("DormInt", "" + choose_amount);
                 btn_add2.setVisibility(View.VISIBLE);
                 btn_remove2.setVisibility(View.VISIBLE);
+                break;
+            case R.id.btn_submit:
+                ChooseInfo chooseInfo = new ChooseInfo();
+                switch (choose_amount) {
+                    case 4:
+                        chooseInfo.setStu3id(resident_stu3id.getText().toString());
+                        chooseInfo.setV3code(resident_v3code.getText().toString());
+                    case 3:
+                        chooseInfo.setStu2id(resident_stu2id.getText().toString());
+                        chooseInfo.setV2code(resident_v2code.getText().toString());
+                    case 2:
+                        chooseInfo.setStu1id(resident_stu1id.getText().toString());
+                        chooseInfo.setV1code(resident_v1code.getText().toString());
+                    case 1:
+                        chooseInfo.setNum(choose_amount);
+                        chooseInfo.setBuildingNo(buildingNo);
+                        chooseInfo.setStuid(usr);
+                }
+                Log.d("DormPost",chooseInfo.toString());
                 break;
         }
     }
 
     @Override
-    public void onCheckedChanged(RadioGroup radioGroup,int checkedId){
+    public void onCheckedChanged(RadioGroup radioGroup, int checkedId) {
         final LinearLayout container = (LinearLayout) findViewById(R.id.info_collective);
 
-        switch (checkedId){
+        switch (checkedId) {
             case R.id.radio_personal:
                 container.removeAllViews();
-                Log.d("DormRadio","11111");
+                choose_amount = 1;
+                Log.d("DormRadio", "11111");
                 break;
             case R.id.radio_collective:
-                Log.d("DormRadio","22222");
+                Log.d("DormRadio", "22222");
+                choose_amount = 2;
                 View child = LayoutInflater.from(ChooseActivity.this).inflate(R.layout.info_resident, container, false);
                 container.addView(child);
                 container.invalidate();
                 btn_add = (Button) findViewById(R.id.resident_add);
+                resident_stu1id = (EditText)findViewById(R.id.resident_stu1id);
+                resident_v1code = (EditText)findViewById(R.id.resident_v1code);
                 btn_add.setOnClickListener(this);
                 break;
         }
@@ -273,5 +330,31 @@ public class ChooseActivity extends AppCompatActivity implements View.OnClickLis
             e.printStackTrace();
         }
         return roomInfo;
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+        switch (i){
+            case 0:
+                buildingNo = 5;
+                break;
+            case 1:
+                buildingNo = 13;
+                break;
+            case 2:
+                buildingNo = 14;
+                break;
+            case 3:
+                buildingNo = 8;
+                break;
+            case 4:
+                buildingNo = 9;
+                break;
+        }
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> adapterView) {
+
     }
 }

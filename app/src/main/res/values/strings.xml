@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">DormChoose</string>
+    <string name="app_name">软微选宿</string>
     <string name="login_username">学号</string>
     <string name="login_password">密码</string>
     <string name="login_submit">登录</string>

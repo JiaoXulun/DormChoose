@@ -1,0 +1,40 @@
+<resources>
+    <string name="app_name">軟微選宿</string>
+    <string name="login_username">學號</string>
+    <string name="login_password">密碼</string>
+    <string name="login_submit">登入</string>
+    <string name="login_sspku">©北京大學軟件與微電子學院</string>
+    <string name="info_name">姓名</string>
+    <string name="info_studentid">學號</string>
+    <string name="info_gender">性别</string>
+    <string name="info_grade">年級</string>
+    <string name="info_location">校區</string>
+    <string name="info_vcode">驗證碼</string>
+    <string name="info_building">樓號</string>
+    <string name="info_room">房間號</string>
+    <string name="info_submit">確認無誤，進入選宿</string>
+    <string name="info_exit">退出</string>
+
+    <string name="remain_5">05號樓剩餘空床數</string>
+    <string name="remain_13">13號樓剩餘空床數</string>
+    <string name="remain_14">14號樓剩餘空床數</string>
+    <string name="remain_8">08號樓剩餘空床數</string>
+    <string name="remain_9">09號樓剩餘空床數</string>
+    <string name="building_choose">請選擇樓號</string>
+    <string name="radio_personal">個人辦理</string>
+    <string name="radio_collective">集體辦理</string>
+    <string name="btn_submit">提交</string>
+    <string name="btn_back">返回</string>
+
+    <string name="resident_stu1id">同住人1學號</string>
+    <string name="resident_v1code">同住人1校驗碼</string>
+    <string name="resident_stu2id">同住人2學號</string>
+    <string name="resident_v2code">同住人2校驗碼</string>
+    <string name="resident_stu3id">同住人3學號</string>
+    <string name="resident_v3code">同住人3校驗碼</string>
+    <string name="resident_add"> </string>
+    <string name="resident_remove"> </string>
+
+
+</resources>
+

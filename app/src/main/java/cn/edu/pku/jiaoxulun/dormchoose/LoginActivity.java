@@ -47,58 +47,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         btn_login_submit = (Button) findViewById(R.id.login_submit);
 
         btn_login_submit.setOnClickListener(this);
-        /*
-        btn_login_submit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String usr = txt_login_usr.getText().toString();
-                if("".equals(usr)){
-                    Toast.makeText(LoginActivity.this,"请输入学号",Toast.LENGTH_LONG).show();
-                    return;
-                }
-                String pwd = txt_login_pwd.getText().toString();
-                if("".equals(pwd)){
-                    Toast.makeText(LoginActivity.this,"请输入密码",Toast.LENGTH_LONG).show();
-                    return;
-                }
-                final String address = NetUtil.USER_PATH + "Login?username=" + usr + "&password=" + pwd;
 
-                new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        HttpsURLConnection con = null;
-
-                        try {
-                            URL url = new URL(address);
-                            trustAllHosts();
-                            con = (HttpsURLConnection) url.openConnection();
-                            con.setHostnameVerifier(DO_NOT_VERIFY);
-                            con.setRequestMethod("GET");
-                            con.setConnectTimeout(8000);
-                            con.setReadTimeout(8000);
-                            InputStream in = con.getInputStream();
-                            BufferedReader reader = new BufferedReader(new InputStreamReader(in));
-                            StringBuilder response = new StringBuilder();
-                            String str;
-                            Log.d("Dorm", address);
-                            while ((str = reader.readLine()) != null) {
-                                response.append(str);
-                                Log.d("Dorm", str);
-                            }
-                            String responseStr = response.toString();
-                            Log.d("Dorm", responseStr);
-                            decodeJSON(responseStr);
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        } finally {
-                            if (con != null) {
-                                con.disconnect();
-                            }
-                        }
-                    }
-                }).start();
-            }
-        });*/
     }
 
     @Override
